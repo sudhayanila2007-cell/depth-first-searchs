@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h3>Name:Udhayanila S </h3>
+<h3>Register Number: 212225040476    </h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -87,6 +87,46 @@ F H <BR>
 <h3>Sample Output</h3>
 <hr>
 ['0', '1', '2', '3', '4']
+<h3>Program</h3>
+```
+from collections import deque
+from collections import defaultdict
+
+def bfs(graph,start,visited,path):
+    queue = deque()
+    path.append(start)
+    queue.append(start)
+    visited[start] = True
+    while len(queue) != 0:
+        tmpnode = queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour] == False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour] = True
+    return path
+
+graph = defaultdict(list)
+v,e = map(int,input().split())
+for i in range(e):
+    u,v = map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+if '0' in graph:
+    start = '0'
+else:
+    start = 'A'
+path = []
+visited = defaultdict(bool)
+traversedpath = bfs(graph,start,visited,path)
+print(traversedpath)
+```
+<h3>Output</h3>
+<img width="1907" height="145" alt="Screenshot 2026-10-28 101833" src="https://github.com/user-attachments/assets/dbda9e82-11a9-4ac0-b75e-796b1273309e" />
+<img width="1909" height="210" alt="Screenshot 2026-10-28 101630" src="https://github.com/user-attachments/assets/da7eb8dc-6327-4e2f-9925-bfc3b427d153" />
+
+
 
 <hr>
 <h3>Result:</h3>
